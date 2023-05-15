@@ -25,15 +25,16 @@ const Login = ({ onLogin }) => {
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Welcome!</h1>
+      <p>Please log in with your username and password below.</p>
       <form onSubmit={handleSubmit}>
         <label>
-          Username:
+          Username: 
           <input type="text" value={username} onChange={handleUsernameChange} />
         </label>
         <br />
         <label>
-          Password:
+          Password: 
           <input type="password" value={password} onChange={handlePasswordChange} />
         </label>
         <br />

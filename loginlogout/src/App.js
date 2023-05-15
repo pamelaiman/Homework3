@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Login from './Screens/Login';
 import SuccessfulLogin from './Screens/SuccessfulLogIn';
 import UnsuccessfulLogin from './Screens/UnsuccessfulLogin';
+import './App.css';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
