@@ -1,26 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Login from './Screens/Login';
+import SuccessfulLogin from './Screens/SuccessfulLogIn';
+import UnsuccessfulLogin from './Screens/UnsuccessfulLogin';
 
-function App() {
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoginFailed, setIsLoginFailed] = useState(false);
+
+  const handleLogin = (success) => {
+    if (success) {
+      setIsLoggedIn(true);
+      setIsLoginFailed(false);
+    } else {
+      setIsLoggedIn(false);
+      setIsLoginFailed(true);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setIsLoginFailed(false);
+  };
+
+  const handleRedirect = () => {
+    setIsLoginFailed(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Welcome.</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-           <code>Please log in</code>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {isLoggedIn ? (
+        <SuccessfulLogin onLogout={handleLogout} />
+      ) : isLoginFailed ? (
+        <UnsuccessfulLogin onRedirect={handleRedirect} />
+      ) : (
+        <Login onLogin={handleLogin} />
+      )}
     </div>
   );
-}
+};
 
 export default App;
