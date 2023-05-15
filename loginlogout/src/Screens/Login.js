@@ -16,7 +16,7 @@ const Login = ({ onLogin }) => {
     event.preventDefault();
 
     // Check username and password
-    if (username === 'correctUsername' && password === 'correctPassword') {
+    if (username === 'username' && password === 'password') {
       onLogin(true); // Successful login
     } else {
       onLogin(false); // Unsuccessful login
