@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 
 const SuccessfulLogin = ({ onLogout }) => {
   const handleLogout = () => {
